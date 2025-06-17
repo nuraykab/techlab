@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeKids - Обучение программированию для детей</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#">
+                <i class="fas fa-code me-2"></i>CodeKids
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('home')">
+                            <i class="fas fa-home me-1"></i>Главная
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('lessons')">
+                            <i class="fas fa-book me-1"></i>Уроки
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('code-editor')">
+                            <i class="fas fa-code me-1"></i>Редактор кода
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('quiz')">
+                            <i class="fas fa-play me-1"></i>Викторина
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('progress')">
+                            <i class="fas fa-chart-bar me-1"></i>Прогресс
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showSection('admin')">
+                            <i class="fas fa-cog me-1"></i>Админ
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главная страница -->
+    <section id="home" class="hero-section">
+        <div class="hero-bg">
+            <div class="container">
+                <div class="row align-items-center min-vh-100">
+                    <div class="col-lg-6">
+                        <h1 class="display-3 fw-bold text-white mb-4">
+                            CodeKids 🚀
+                        </h1>
+                        <p class="lead text-white-50 mb-4">
+                            Изучай программирование весело и легко! Интерактивная платформа для обучения детей основам программирования.
+                        </p>
+                        <div class="row mb-4">
+                            <div class="col-md-4 text-center mb-3">
+                                <div class="stat-card">
+                                    <h3 class="text-primary" id="totalCodes">15+</h3>
+                                    <p class="text-muted">Программ написано</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center mb-3">
+                                <div class="stat-card">
+                                    <h3 class="text-success" id="totalTime">120+</h3>
+                                    <p class="text-muted">Минут обучения</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 text-center mb-3">
+                                <div class="stat-card">
+                                    <h3 class="text-warning" id="streakDays">5</h3>
+                                    <p class="text-muted">Дней подряд</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-lg me-3" onclick="showSection('lessons')">
+                            Начать обучение! <i class="fas fa-arrow-right ms-2"></i>
+                        </button>
+                        <button class="btn btn-outline-light btn-lg">
+                            Узнать больше
+                        </button>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="hero-image">
+                            <img src="https://images.pexels.com/photos/4144923/pexels-photo-4144923.jpeg" alt="Дети изучают программирование" class="img-fluid rounded-3 shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Уроки -->
+    <section id="lessons" class="section d-none">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold">Интерактивные уроки</h2>
+                <p class="lead text-muted">Изучай программирование пошагово с нашими увлекательными уроками</p>
+            </div>
+
+            <!-- Статистика прогресса -->
+            <div class="row mb-5">
+                <div class="col-md-4 mb-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <h3 class="text-primary" id="completedLessons">0</h3>
+                            <p class="text-muted">Уроков завершено</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <h3 class="text-success" id="studyTime">0</h3>
+                            <p class="text-muted">Минут изучения</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <h3 class="text-warning" id="currentStreak">3</h3>
+                            <p class="text-muted">Дней подряд</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Карточки уроков -->
+            <div class="row" id="lessonsContainer">
+                <!-- Уроки будут добавлены через JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Редактор кода -->
+    <section id="code-editor" class="section d-none">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold">Редактор кода</h2>
+                <p class="lead text-muted">Пиши код, экспериментируй и создавай удивительные проекты!</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-lightbulb text-warning me-2"></i>Примеры кода</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-outline-primary btn-sm" onclick="loadExample('hello')">
+                                    Привет, мир!
+                                </button>
+                                <button class="btn btn-outline-primary btn-sm" onclick="loadExample('math')">
+                                    Простая математика
+                                </button>
+                                <button class="btn btn-outline-primary btn-sm" onclick="loadExample('loop')">
+                                    Цикл с числами
+                                </button>
+                                <button class="btn btn-outline-primary btn-sm" onclick="loadExample('html')">
+                                    Веб-страница
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-9">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <div>
+                                <button class="btn btn-sm btn-outline-primary me-2" id="pythonTab" onclick="switchLanguage('python')">
+                                    🐍 Python
+                                </button>
+                                <button class="btn btn-sm btn-outline-warning" id="htmlTab" onclick="switchLanguage('html')">
+                                    🌐 HTML
+                                </button>
+                            </div>
+                            <div>
+                                <button class="btn btn-sm btn-secondary me-2" onclick="saveCode()">
+                                    <i class="fas fa-save"></i> Сохранить
+                                </button>
+                                <button class="btn btn-sm btn-warning me-2" onclick="resetCode()">
+                                    <i class="fas fa-undo"></i> Сброс
+                                </button>
+                                <button class="btn btn-sm btn-success" onclick="runCode()" id="runButton">
+                                    <i class="fas fa-play"></i> Запустить
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <textarea id="codeEditor" class="form-control border-0" rows="15" style="font-family: 'Courier New', monospace; background: #1e1e1e; color: #fff; resize: none;">
+# Привет! Это твой первый код на Python
+# Попробуй изменить текст и нажми "Запустить"
+
+name = "юный программист"
+print(f"Привет, {name}!")
+print("Добро пожаловать в мир программирования!")
+
+# Задание: добавь еще одну строку с print
+                            </textarea>
+                        </div>
+                    </div>
+
+                    <div class="card mt-3">
+                        <div class="card-header bg-dark text-white">
+                            <i class="fas fa-terminal me-2"></i>Результат выполнения
+                        </div>
+                        <div class="card-body bg-dark text-success" style="font-family: 'Courier New', monospace; min-height: 200px;">
+                            <div id="output" class="text-muted">
+                                <div class="text-center py-5">
+                                    <i class="fas fa-play fa-2x opacity-50 mb-3"></i>
+                                    <div>Нажми "Запустить" чтобы увидеть результат твоего кода!</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Подсказки -->
+            <div class="card mt-4 border-primary">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="fas fa-lightbulb me-2"></i>Подсказки для юных программистов</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 class="text-primary">Python команды:</h6>
+                            <ul class="list-unstyled">
+                                <li>• <code>print("текст")</code> - вывести текст</li>
+                                <li>• <code>name = "Вася"</code> - создать переменную</li>
+                                <li>• <code>for i in range(5):</code> - цикл</li>
+                                <li>• <code>if x > 5:</code> - условие</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-primary">HTML теги:</h6>
+                            <ul class="list-unstyled">
+                                <li>• <code>&lt;h1&gt;Заголовок&lt;/h1&gt;</code> - большой заголовок</li>
+                                <li>• <code>&lt;p&gt;Текст&lt;/p&gt;</code> - абзац</li>
+                                <li>• <code>&lt;button&gt;Кнопка&lt;/button&gt;</code> - кнопка</li>
+                                <li>• <code>&lt;img src="фото.jpg"&gt;</code> - картинка</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Викторина -->
+    <section id="quiz" class="section d-none">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div id="quizContainer">
+                        <!-- Викторина будет загружена через JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Прогресс -->
+    <section id="progress" class="section d-none">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold">Твой прогресс</h2>
+                <p class="lead text-muted">Отслеживай свои достижения и празднуй успехи!</p>
+            </div>
+
+            <!-- Основная статистика -->
+            <div class="row mb-5">
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-target fa-lg"></i>
+                            </div>
+                            <h4 class="text-primary" id="progressLessons">0/6</h4>
+                            <p class="text-muted">Уроков завершено</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <div class="bg-success text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-clock fa-lg"></i>
+                            </div>
+                            <h4 class="text-success" id="progressTime">0 мин</h4>
+                            <p class="text-muted">Время обучения</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <div class="bg-warning text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-calendar fa-lg"></i>
+                            </div>
+                            <h4 class="text-warning" id="progressStreak">3</h4>
+                            <p class="text-muted">Дней подряд</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="card text-center h-100">
+                        <div class="card-body">
+                            <div class="bg-info text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                                <i class="fas fa-code fa-lg"></i>
+                            </div>
+                            <h4 class="text-info" id="progressCodes">15</h4>
+                            <p class="text-muted">Программ написано</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Прогресс-бар -->
+            <div class="card mb-5">
+                <div class="card-body">
+                    <h5 class="text-center mb-4">Общий прогресс обучения</h5>
+                    <div class="progress mb-3" style="height: 30px;">
+                        <div class="progress-bar bg-gradient" role="progressbar" style="width: 0%" id="overallProgress">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-primary" id="progressPercentage">0%</h3>
+                        <p class="text-muted">завершено</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Достижения -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-trophy text-warning me-2"></i>Твои достижения</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row" id="achievementsContainer">
+                        <!-- Достижения будут добавлены через JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Админ панель -->
+    <section id="admin" class="section d-none">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold">Панель администратора</h2>
+                <p class="lead text-muted">Управление курсами и пользователями</p>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-users me-2"></i>Статистика пользователей</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row text-center">
+                                <div class="col-6 mb-3">
+                                    <h4 class="text-primary">247</h4>
+                                    <p class="text-muted">Активных учеников</p>
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <h4 class="text-success">1,523</h4>
+                                    <p class="text-muted">Завершенных уроков</p>
+                                </div>
+                            </div>
+                            <canvas id="userChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5><i class="fas fa-book me-2"></i>Управление курсами</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label class="form-label">Название курса</label>
+                                <input type="text" class="form-control" id="courseName" placeholder="Введите название курса">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Описание</label>
+                                <textarea class="form-control" id="courseDescription" rows="3" placeholder="Описание курса"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Сложность</label>
+                                <select class="form-select" id="courseDifficulty">
+                                    <option value="Легко">Легко</option>
+                                    <option value="Средне">Средне</option>
+                                    <option value="Сложно">Сложно</option>
+                                </select>
+                            </div>
+                            <button class="btn btn-primary" onclick="addCourse()">
+                                <i class="fas fa-plus me-2"></i>Добавить курс
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h5><i class="fas fa-chart-line me-2"></i>Аналитика обучения</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="analyticsChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Telegram Bot Integration -->
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1050;">
+        <div class="toast" id="telegramToast" role="alert">
+            <div class="toast-header">
+                <i class="fab fa-telegram text-primary me-2"></i>
+                <strong class="me-auto">Telegram Bot</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+                Подключись к нашему Telegram боту для получения уведомлений!
+                <div class="mt-2">
+                    <button class="btn btn-sm btn-primary" onclick="connectTelegram()">
+                        Подключить
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5><i class="fas fa-code me-2"></i>CodeKids</h5>
+                    <p class="text-muted">Интерактивная платформа для обучения детей программированию</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="text-muted mb-0">
+                        Создано с <i class="fas fa-heart text-danger"></i> в ТОО Techlab Digital Solutions
+                    </p>
+                    <small class="text-muted">© 2025 CodeKids. Все права защищены.</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="d-none">
+        <div class="spinner-overlay">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Загрузка...</span>
+            </div>
+            <p class="mt-3">Загружаем...</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
